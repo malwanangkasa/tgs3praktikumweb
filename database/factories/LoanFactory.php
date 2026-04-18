@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Model;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,7 @@ class LoanFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
+            'user_npm' => User::inRandomOrder()->first()->npm,
             'loan_at' => $this->faker->date(),
             'return_at' => $this->faker->optional()->date(),
         ];

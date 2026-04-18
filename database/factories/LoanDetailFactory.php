@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Model;
+use App\Models\Loan;
+use App\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,6 +17,7 @@ class LoanDetailFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    protected $table = 'loan_details';
     public function definition()
     {
         return [

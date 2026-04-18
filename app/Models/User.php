@@ -12,12 +12,12 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    // 🔥 PRIMARY KEY = npm
+    
     protected $primaryKey = 'npm';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    // 🔥 FIELD YANG BOLEH DIISI
+    
     protected $fillable = [
         'npm',
         'username',
@@ -27,12 +27,12 @@ class User extends Authenticatable
         'password',
     ];
 
-    // 🔥 FIELD YANG DISEMBUNYIKAN
+    
     protected $hidden = [
         'password',
     ];
 
-    // 🔥 CASTING
+    
     protected function casts(): array
     {
         return [
@@ -40,4 +40,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function loans()
+    {
+        return $this->hasMany(Loan::class, 'user_npm', 'npm');
+    }
+
 }
